@@ -28,7 +28,7 @@ body {
   }
   
   .logo img {
-    height: 50px;
+    height: 40px;
     transition: transform 0.3s ease;
   }
   
@@ -39,7 +39,9 @@ body {
   nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
   }
   
   nav a {
@@ -58,30 +60,30 @@ body {
   
   .hero {
     text-align: center;
-    padding: 150px 20px;
+    padding: 100px 20px;
     background-color: #112240;
-    background-image: url('hero-bg.jpg'); /* Add a futuristic background image */
+    background-image: url('hero-bg.jpg');
     background-size: cover;
     background-position: center;
     animation: fadeIn 2s ease-in-out;
   }
   
   .hero h1 {
-    font-size: 4rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
     animation: slideInFromTop 1.5s ease-in-out;
   }
   
   .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
     animation: slideInFromBottom 1.5s ease-in-out;
   }
   
   .cta-button {
     background-color: #64ffda;
     color: #0a192f;
-    padding: 15px 30px;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
@@ -95,7 +97,7 @@ body {
   }
   
   section {
-    padding: 80px 20px;
+    padding: 60px 20px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
@@ -108,8 +110,8 @@ body {
   
   h2 {
     color: #64ffda;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-size: 2rem;
     text-align: center;
     animation: fadeIn 2s ease-in-out;
   }
@@ -120,7 +122,7 @@ body {
   
   ul li, table td {
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   table {
@@ -130,7 +132,7 @@ body {
   }
   
   table th, table td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
     border-bottom: 1px solid #64ffda;
   }
@@ -146,17 +148,17 @@ body {
   
   footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
     background-color: #112240;
     margin-top: 50px;
     animation: fadeIn 2s ease-in-out;
   }
   
   footer .social a {
-    margin: 0 15px;
+    margin: 0 10px;
     color: #64ffda;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: transform 0.3s ease, color 0.3s ease;
   }
   
@@ -209,17 +211,130 @@ body {
     }
   }
   
-  /* Scroll Animations */
-  .reveal {
-    position: relative;
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 1s ease;
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    table th, table td {
+      padding: 8px;
+    }
+  
+    footer .social a {
+      font-size: 1rem;
+    }
   }
   
-  .reveal.active {
-    transform: translateY(0);
-    opacity: 1;
+  @media (max-width: 480px) {
+    .hero {
+      padding: 80px 20px;
+    }
+  
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero p {
+      font-size: 0.9rem;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    ul li, table td {
+      font-size: 0.9rem;
+    }
+  
+    table th, table td {
+      padding: 6px;
+    }
+  
+    footer .social a {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Hamburger Menu Styles */
+.hamburger {
+    display: none; /* Hide by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ccd6f6;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #ccd6f6;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger-icon::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger-icon::after {
+    transform: translateY(8px);
+  }
+  
+  /* Show Hamburger Menu on Small Screens */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger button */
+    }
+  
+    nav {
+      display: none; /* Hide navigation by default */
+      width: 100%;
+      background-color: #112240;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      padding: 10px 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    nav.active {
+      display: block; /* Show navigation when active */
+    }
   }
   </style>
 </head>
@@ -229,6 +344,11 @@ body {
     <div class="logo">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrHmelL0Lvk9NfgVCppKkcGy3rZAu-NpA9JsaIBkAqb2k_exhA7yQWpGDdzgmyxfkegg&usqp=CAU" alt="Unikron OS Logo">
     </div>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span class="hamburger-icon"></span>
+    </button>
+    <!-- Navigation Links -->
     <nav>
       <ul>
         <li><a href="#introduction">Introduction</a></li>
@@ -254,7 +374,7 @@ body {
   <section id="introduction" class="reveal">
     <h2>Introduction</h2>
     <p>Unikron OS is a revolutionary universal operating system designed to bridge the gap between different platforms, including Windows, Linux, macOS, Android, and iOS. It provides a seamless, unified computing experience using modular architecture, virtualization, and cross-platform compatibility.</p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrHmelL0Lvk9NfgVCppKkcGy3rZAu-NpA9JsaIBkAqb2k_exhA7yQWpGDdzgmyxfkegg&usqp=CAU" alt="Unikron OS Interface" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwrHmelL0Lvk9NfgVCppKkcGy3rZAu-NpA9JsaIBkAqb2k_exhA7yQWpGDdzgmyxfkegg&usqp=CAU" alt="Unikron OS Interface">
   </section>
 
   <!-- Objectives -->
@@ -300,7 +420,7 @@ body {
     <div class="kernel">
       <h3>Kernel Design</h3>
       <p>Hybrid kernel with modular drivers, advanced process scheduling, memory management, and built-in security features like encryption and sandboxing.</p>
-      <img src="kernel-architecture.png" alt="Kernel Architecture">
+      <img src="https://www.engineersgarage.com/wp-content/uploads/2016/07/ArticleImage-12104-1.png" alt="Kernel Architecture">
     </div>
     <div class="components">
       <h3>System Components</h3>
@@ -427,6 +547,15 @@ const revealSections = () => {
 
 window.addEventListener('scroll', revealSections);
 revealSections(); // Trigger on page load
+
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  hamburger.classList.toggle('active');
+});
   </script>
 </body>
 </html>
